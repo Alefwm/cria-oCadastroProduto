@@ -1,0 +1,105 @@
+/* ---------- Variáveis: mude as cores do site em um só lugar ---------- */
+:root {
+    --cor-fundo: #0f172a;
+    --cor-texto: #e2e8f0;
+    --cor-destaque: #f59e0b;
+    --cor-hover: rgba(245, 158, 11, 0.12);
+}
+
+/* ---------- Reset básico ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: #f1f5f9;
+}
+
+/* ---------- Cabeçalho ---------- */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    border-bottom: 3px solid var(--cor-destaque);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-size: 1.6rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--cor-destaque);
+}
+
+/* ---------- Menu ---------- */
+.menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.menu a {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+
+.menu a:hover {
+    background: var(--cor-hover);
+    color: var(--cor-destaque);
+    transform: translateY(-2px);
+}
+
+.menu a.ativo {
+    background: var(--cor-destaque);
+    color: var(--cor-fundo);
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 700px) {
+    .topo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu ul {
+        justify-content: center;
+    }
+}
+/* ---------- Hero (palco do card) ---------- */
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: grid;
+    place-items: center;          /* centraliza o card nos dois eixos */
+    padding: 2rem 1rem;
+    overflow: hidden;             /* esconde as bordas do blur */
+}
+
+.hero-fundo {
+    position: absolute;
+    inset: 0;                     /* atalho de top/right/bottom/left: 0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(6px) brightness(0.65);
+    transform: scale(1.08);       /* evita bordas claras causadas pelo blur */
+    z-index: 0;
+}
